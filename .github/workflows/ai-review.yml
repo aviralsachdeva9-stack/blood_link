@@ -3,6 +3,12 @@ on:
   pull_request:
     types: [opened, synchronize]
 
+# 👇 YEH BLOCK NAYA ADD KRNA HAI 👇
+permissions:
+  pull-requests: write
+  contents: read
+# 👆 ---------------------------- 👆
+
 jobs:
   code_review:
     runs-on: ubuntu-latest
@@ -12,7 +18,7 @@ jobs:
 
       - name: Run LLaMA 3.3 Code Reviewer
         uses: aviralsachdeva9-stack/ai-code-reviewer@v1.0.0
-        env: # 👈 YEH LINE NAYI HAI
-          PR_NUMBER: ${{ github.event.pull_request.number }} # 👈 YEH BHI NAYI HAI
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         with:
           groq_api_key: ${{ secrets.GROQ_API_KEY }}

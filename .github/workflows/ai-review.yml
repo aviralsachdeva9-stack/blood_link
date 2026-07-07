@@ -1,5 +1,5 @@
 name: AI Code Review
-on:
+on: 
   pull_request:
     types: [opened, synchronize]
 
@@ -12,5 +12,7 @@ jobs:
 
       - name: Run LLaMA 3.3 Code Reviewer
         uses: aviralsachdeva9-stack/ai-code-reviewer@v1.0.0
+        env: # 👈 YEH LINE NAYI HAI
+          PR_NUMBER: ${{ github.event.pull_request.number }} # 👈 YEH BHI NAYI HAI
         with:
           groq_api_key: ${{ secrets.GROQ_API_KEY }}

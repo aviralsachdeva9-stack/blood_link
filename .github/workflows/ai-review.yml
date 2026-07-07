@@ -1,0 +1,16 @@
+name: AI Code Review
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  code_review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run LLaMA 3.3 Code Reviewer
+        uses: aviralsachdeva9-stack/ai-code-reviewer@v1.0.0
+        with:
+          groq_api_key: ${{ secrets.GROQ_API_KEY }}

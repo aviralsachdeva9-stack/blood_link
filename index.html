@@ -345,7 +345,17 @@
             }
             reader.readAsDataURL(file);
         });
+    <img src="blood_logo.png">
 
+    <script>
+        // Bug 2: Modern JavaScript mein 'var' use nahi karte (let ya const use karna chahiye)
+        var donorName = "Aviral";
+        
+        function greetDonor() {
+            // Bug 3: Variable ka naam donorName hai, par yahan galti se DonorName (capital D) likha hai
+            console.log("Welcome back, " + DonorName);
+        }
+    </script>
         // Nominatim Reverse Geocoding
         function getGPS() {
             const locInput = document.getElementById('user-loc');
